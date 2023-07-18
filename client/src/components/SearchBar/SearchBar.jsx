@@ -12,13 +12,25 @@ function SearchBar() {
   }
   const handleClick = () => {
     dispatch(getCountryByName(name))
+    setName("");
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name) {
+      dispatch(getCountryByName(name));
+      setName("");
+    }
+  };
   return (
     <div className={style.searchBar}>
-        <input onChange={handlechange} type="text" placeholder="write a country"/>
+       <form onSubmit={handleSubmit}>
+        <input onChange={handlechange} type="text" placeholder="write a country"value={name}style={{ textAlign: "center" }}/>
         <button onClick={handleClick} className={style.button}>Search</button>
+        </form>
     </div>
   )
 }
 
 export default SearchBar;
+

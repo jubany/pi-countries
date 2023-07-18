@@ -1,48 +1,90 @@
-.wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color:#f9f9f9;
-    min-height: 90vh;
-    padding-bottom: 7.8rem;
-    align-items: center;
-    background: rgb(239,255,171);
-    background: linear-gradient(132deg, rgba(239,255,171,0.835171568627451) 0%, rgba(184,252,211,0.87718837535014) 23%, rgba(122,248,255,0.5046393557422969) 45%, rgba(255,255,255,1) 75%);
-
-}
-
 .container {
-    background: #b8fcd3;
-}
-
-.pagination {
+    background-color: #b8fcd3;
+  }
+  
+  .content {
+    max-height: 80vh; /* Establece una altura máxima */
+    overflow-y: auto; /* Permite el desplazamiento vertical solo cuando sea necesario */
+  }
+  
+  .card.card:hover {
+    transform: scale(1.1); /* Aplica un zoom del 110% */
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+  }
+  
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    background-color: #b8fcd3;
+    /* padding-bottom: 7.8rem; Elimina el espacio adicional en la parte inferior */
+    align-items: flex-start;
+  }
+  
+  .card {
+    width: 100%;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem; /* Agrega un espacio más pequeño entre las tarjetas */
+  }
+  
+  .pagination {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
     align-items: center;
-    margin: 0 .5rem ;
+    margin: 0 .5rem;
     margin-bottom: 10px;
-}
-
-.buttonPrev {
+  }
+  
+  .buttonPrev {
     padding: 10px;
-    background-color: #FCFFE7;
+    background-color: #fcffe7;
     border-radius: 10px;
     margin-right: 10px;
-    color: #181D31;
+    color: #181d31;
     font-weight: 800;
-    -webkit-box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
-    -moz-box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
     box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
-    }
-.buttonNext {
+  }
+  
+  .buttonNext {
     padding: 10px;
-    background-color: #FCFFE7;
+    background-color: #fcffe7;
     border-radius: 10px;
     margin-left: 10px;
-    color: #181D31;
+    color: #181d31;
     font-weight: 800;
-    -webkit-box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
-    -moz-box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
     box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
-}
+  }
+  
+  @media (max-width: 768px) {
+    .wrapper {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .card {
+      margin-bottom: 0.20rem; /* Ajusta el espacio entre las tarjetas */
+      height: auto;
+    }
+  
+    .card:nth-child(3n + 1) {
+      margin-right: 0;
+    }
+  
+    .card:last-child {
+      margin-bottom: 0;
+    }
+  
+    .content {
+      max-height: calc(80vh - 2rem);
+      overflow-y: scroll;
+    }
+  }
+  
+  
+  
+  
+  
+  

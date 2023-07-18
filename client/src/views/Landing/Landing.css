@@ -1,0 +1,86 @@
+body {
+    overflow: hidden;
+  }
+  
+  .ParticleImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .title {
+    color: black;
+    text-align: center;
+    margin-top: 40px; 
+  }
+  
+  .particle-container {
+    position: relative;
+    margin-top: 0;
+    z-index: 0; 
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1; 
+  }
+  
+  .particle-image {
+    margin-top: -50px; 
+    height: 70vh; 
+  } 
+  
+  .home-button {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 40px;
+    margin-top: 40px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease; 
+  }
+  @media screen and (max-width: 768px) {
+    .ParticleImage {
+      min-height: auto; 
+    }
+  
+    .particle-image {
+      height: 50vh;
+    }
+  }
+  
+  .home-button:hover {
+    background-color: blue; 
+  }
+  
+  @keyframes colorChange {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: green; }
+  }
+  
+  .country-text {
+    animation: colorChange 3s infinite;
+  }
+  
+  .content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 0 20px;
+    text-align: center; 
+    width: 100%;
+  }
+  

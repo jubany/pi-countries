@@ -3,6 +3,8 @@ import { useDispatch,useSelector} from "react-redux"
 import {getAllCountries, createActivity} from "../../redux/actions/index"
 import style from "./Form.module.css"
 import validate from "../../helpers/Validate";
+import { Link } from 'react-router-dom';
+
 
 export default function Form () {
     const dispatch = useDispatch();
@@ -101,7 +103,7 @@ export default function Form () {
                             )}
                         </div>
                         <div>
-                            <label htmlFor="">Dificulty</label>
+                            <label htmlFor="">Dificult</label>
                             <input 
                                 type="number"  
                                 name="dificulty"  
@@ -153,6 +155,7 @@ export default function Form () {
                         </div>
                         <div>
                             <input className={style.btnPrimary} type="submit" value="Send"/>
+                            <Link to='/'><button className={style.btnPrimary}>Home</button></Link>
                         </div>
                     </form>
                 </div>

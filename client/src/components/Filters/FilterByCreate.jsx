@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { filterByCreate, getAllActivities } from '../../redux/actions'
 import style from "./Filters.module.css"
@@ -20,7 +20,7 @@ export default function FilterByCreate() {
   return (
         <div className={style.select}>
             <select onChange={(el)=>handleSelect(el)}>
-            <option value ='sin filtros'>All</option>
+            <option value ='sin filtros'>Activities</option>
                 {activities.map((act, index)=>(
             <option key={index} value={act.name}>{act.name}</option>
             ))}

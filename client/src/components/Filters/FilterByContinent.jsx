@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import {useDispatch, useSelector} from "react-redux"
+import React from 'react'
+import {useDispatch} from "react-redux"
 import { filterByContinent } from '../../redux/actions';
 import style from "./Filters.module.css"
 
@@ -13,7 +13,7 @@ export const FilterByContinent = () => {
   return (
     <div className={style.select} >
     <select onClick={(e) => handleFilterContinent(e)}>
-        <option value='All'>All</option>
+        <option value='All'>Continents</option>
         <option value='Europe'>Europe</option>
         <option value='Asia'>Asia</option>
         <option value='North America'>North America</option>

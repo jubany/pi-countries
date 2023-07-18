@@ -12,7 +12,7 @@ import style from "./Filters.module.css"
   return (
     <div className={style.select}>
         <select onChange={handleChange}>
-            <option value="reset">Order by Population</option>
+            <option value="reset">Population</option>
             <option value="minPopulation">Min Population</option>
             <option value="maxPopulation">Max Population</option>
         </select>

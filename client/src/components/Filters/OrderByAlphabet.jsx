@@ -13,7 +13,7 @@ const OrderByAlphabet = () => {
   return (
     <div className={style.select}>
         <select onChange={handleChange}>
-            <option value="reset">Order by Alphabet</option>
+            <option value="reset">Order by name</option>
             <option value="AZ">A - Z</option>
             <option value="ZA">Z - A</option>
         </select>

@@ -11,26 +11,26 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT"
 export const CLEAN_STATE_COUNTRY_DETAIL = "CLEAN_STATE_COUNTRY_DETAIL"
 
 export const getAllCountries = () => async dispatch => {
-    return fetch("https://pi-countries-production-f168.up.railway.app/")
+    return fetch("/all")
             .then(response => response.json())
             .then(data => dispatch({type: GET_ALL_COUNTRIES, payload: data}))
 };
 
 export const getCountry = (id) => async dispatch => {
-    return fetch(`https://pi-countries-production-f168.up.railway.app/${id}`)
+    return fetch(`/country/${id}`)
             .then(response => response.json())
             .then(data => dispatch({type: GET_COUNTRY, payload: data}))
 };
 
 export const getCountryByName = (name) => async dispatch => {
-    return fetch(`https://pi-countries-production-f168.up.railway.app//all?name=${name}`)
+    return fetch(`/all?name=${name}`)
     .then(response=> response.json())
     .then(data=> dispatch({type:GET_COUNTRY_BY_NAME, payload: data}))
 };
 
 export const createActivity = (data) => async dispatch => {
     try {  
-        const response = await axios.post("https://pi-countries-production-f168.up.railway.app/", data)
+        const response = await axios.post("/createActivity", data)
         return dispatch({type: CREATE_ACTIVITY, payload: response.data})
     } catch (error) {
         return dispatch({type: CREATE_ACTIVITY, payload: error})
@@ -56,7 +56,7 @@ export const filterByCreate = (type) => {
 
 export function getAllActivities() {
     return async (dispatch) => {
-      const act = await axios("https://pi-countries-production-f168.up.railway.app//allActivities");
+      const act = await axios("/allActivities");
       return dispatch({ type: GET_ACTIVITIES, payload: act.data });
     };
   };

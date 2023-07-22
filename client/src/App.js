@@ -5,6 +5,8 @@ import Landing from './views/Landing/Landing';
 import CountryDetail from './views/CountryDetail/CountryDetail';
 import NotFound from './views/NotFound/NotFound';
 import CreateActivity from './views/CreateActivity/CreateActivity';
+import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:3001/'
 
 
 function App() {

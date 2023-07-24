@@ -6,7 +6,7 @@ import CountryDetail from './views/CountryDetail/CountryDetail';
 import NotFound from './views/NotFound/NotFound';
 import CreateActivity from './views/CreateActivity/CreateActivity';
 import axios from 'axios'
-axios.defaults.baseURL = 'https://pi-countries-production-f168.up.railway.app'
+axios.defaults.baseURL = 'https://pi-countries-production-f168.up.railway.app/all'
 
 function App() {
   return (

@@ -4,31 +4,27 @@ import { filterByCreate, getAllActivities } from '../../redux/actions'
 import style from "./Filters.module.css"
 
 export default function FilterByCreate() {
-    const dispatch = useDispatch();
-    const activities = useSelector((state) => state.activities);
 
-    useEffect(() => {
-        dispatch(getAllActivities());
-    }, [dispatch]);
+    const dispatch = useDispatch()
 
-    function handleSelect(e) {
-        dispatch(filterByCreate(e.target.value));
-    }
+    const activities = useSelector(state=> state.activities)
 
-    return (
+    useEffect(()=>{
+        dispatch(getAllActivities())
+    },[dispatch])
+
+    function handleSelect (e){
+        dispatch(filterByCreate(e.target.value)) 
+    };
+
+  return (
         <div className={style.select}>
-            <select onChange={(el) => handleSelect(el)}>
-                <option value="sin filtros">Activities</option>
-                {Array.isArray(activities) && activities.length > 0 ? (
-                    activities.map((act, index) => (
-                        <option key={index} value={act.name}>
-                            {act.name}
-                        </option>
-                    ))
-                ) : (
-                    <option value="">No activities available</option>
-                )}
+            <select onChange={(el)=>handleSelect(el)}>
+            <option value ='sin filtros'>Activities</option>
+                {activities.map((act, index)=>(
+            <option key={index} value={act.name}>{act.name}</option>
+            ))}
             </select>
         </div>
-    );
-}
+    )
+    }

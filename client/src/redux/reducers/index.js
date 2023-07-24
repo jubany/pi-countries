@@ -81,7 +81,7 @@ const rootReducer = (state = initialState, action) => {
         case GET_ACTIVITIES:                
             return {
                 ...state,
-                activities: action.payload || []
+                activities: action.payload
             }
         case CREATE_ACTIVITY:
             return{

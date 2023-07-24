@@ -6,8 +6,7 @@ import CountryDetail from './views/CountryDetail/CountryDetail';
 import NotFound from './views/NotFound/NotFound';
 import CreateActivity from './views/CreateActivity/CreateActivity';
 import axios from 'axios'
-axios.defaults.baseURL = 'https://pi-countries-git-main-jubany.vercel.app/'
-
+axios.defaults.baseURL = 'https://pi-countries-git-main-jubany.vercel.app'
 
 function App() {
   return (

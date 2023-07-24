@@ -59,9 +59,22 @@ export const orderByPoblation = (type) => {
     return { type: ORDER_BY_POBLATION, payload: type };
 };
 
-export const filterByCreate = (type) => {
-    return { type: FILTER_BY_CREATE, payload: type };
-};
+export const filterByCreate = (activityName) => (dispatch, getState) => {
+    const { activities, countries } = getState();
+    if (activityName === 'sin filtros') {
+      dispatch({ type: FILTER_BY_CREATE, payload: countries });
+    } else {
+      const activity = activities.find((act) => act.name === activityName);
+      if (activity) {
+        const countryIds = activity.countries.map((country) => country.id);
+        const filteredCountries = countries.filter((country) =>
+          countryIds.includes(country.id)
+        );
+        dispatch({ type: FILTER_BY_CREATE, payload: filteredCountries });
+      }
+    }
+  };
+  
 
 export function getAllActivities() {
     return async (dispatch) => {

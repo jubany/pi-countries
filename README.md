@@ -57,17 +57,29 @@ Está permitido, __bajo su responsabilidad__, actualizar las dependencias a vers
 
 El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
 
-En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
+En `api`, copiar `.env.example` como `.env` y completar las credenciales locales:
 
 ```env
 DB_USER=usuariodepostgres
 DB_PASSWORD=passwordDePostgres
+DB_NAME=countries
 DB_HOST=localhost
+DB_PORT=5432
+DATABASE_URL=
+DB_SSL=false
+PORT=3001
+DB_SYNC=false
 ```
 
 Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
 
-Adicionalmente será necesario que creen desde psql una base de datos llamada `countries`
+Adicionalmente será necesario crear desde psql una base de datos llamada `countries`.
+
+En deploys como Render + Neon se puede usar `DATABASE_URL` en lugar de las variables separadas de Postgres. Para Neon, configurar también `DB_SSL=true`.
+
+En `client`, configurar `REACT_APP_API_BASE_URL` con la URL del backend desplegado. Si no se define, usa `http://localhost:3001`.
+
+El servidor no modifica el esquema por defecto. Para crear las tablas de forma no destructiva en un entorno de desarrollo nuevo, usar `DB_SYNC=true`. No habilitar esta opción como reemplazo de migraciones en producción.
 
 El contenido de `client` fue creado usando: Create React App.
 

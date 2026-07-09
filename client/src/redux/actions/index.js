@@ -1,4 +1,5 @@
 import axios from "axios"
+import { API_BASE_URL } from "../../config/api"
 export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES"
 export const GET_COUNTRY = "GET_COUNTRY"
 export const GET_COUNTRY_BY_NAME = "GET_COUNTRY_BY_NAME"
@@ -11,26 +12,26 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT"
 export const CLEAN_STATE_COUNTRY_DETAIL = "CLEAN_STATE_COUNTRY_DETAIL"
 
 export const getAllCountries = () => async dispatch => {
-    return fetch("https://pi-countries-production-f168.up.railway.app/all")
+    return fetch(`${API_BASE_URL}/all`)
             .then(response => response.json())
             .then(data => dispatch({type: GET_ALL_COUNTRIES, payload: data}))
 };
 
 export const getCountry = (id) => async dispatch => {
-    return fetch(`https://pi-countries-production-f168.up.railway.app/country/${id}`)
+    return fetch(`${API_BASE_URL}/country/${id}`)
             .then(response => response.json())
             .then(data => dispatch({type: GET_COUNTRY, payload: data}))
 };
 
 export const getCountryByName = (name) => async dispatch => {
-    return fetch(`https://pi-countries-production-f168.up.railway.app/all?name=${name}`)
+    return fetch(`${API_BASE_URL}/all?name=${name}`)
     .then(response=> response.json())
     .then(data=> dispatch({type:GET_COUNTRY_BY_NAME, payload: data}))
 };
 
 export const createActivity = (data) => async dispatch => {
     try {  
-        const response = await axios.post("https://pi-countries-production-f168.up.railway.app/createActivity", data)
+        const response = await axios.post(`${API_BASE_URL}/createActivity`, data)
         return dispatch({type: CREATE_ACTIVITY, payload: response.data})
     } catch (error) {
         return dispatch({type: CREATE_ACTIVITY, payload: error})
@@ -56,7 +57,7 @@ export const filterByCreate = (type) => {
 
 export function getAllActivities() {
     return async (dispatch) => {
-      const act = await axios("https://pi-countries-production-f168.up.railway.app/allActivities");
+      const act = await axios(`${API_BASE_URL}/allActivities`);
       return dispatch({ type: GET_ACTIVITIES, payload: act.data });
     };
   };

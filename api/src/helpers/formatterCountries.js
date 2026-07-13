@@ -2,8 +2,8 @@ const formatterCountries = (data)=>{
     const rawCapital = data.capitals || data.capital || [];
     const capitalNames = rawCapital.map(capital => typeof capital === 'string' ? capital : capital.name).filter(Boolean);
     const capital = capitalNames.length ? capitalNames.join(", ") : "Capital no disponible";
-    const alpha3 = data.codes?.alpha_3 || data.cca3;
-    const alpha2 = data.codes?.alpha_2 || data.cca2 || alpha3?.slice(0, 2);
+    const alpha3 = data.codes?.alpha_3 || data.codes?.alpha3 || data.cca3 || data.alpha3Code || data.id;
+    const alpha2 = data.codes?.alpha_2 || data.codes?.alpha2 || data.cca2 || data.alpha2Code || alpha3?.slice(0, 2);
 
     return {
         id: alpha3,

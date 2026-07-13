@@ -25,7 +25,14 @@ const getCountries = async () => {
       throw new Error('Unexpected Rest Countries response format')
     }
 
-    const result = countriesData.map(e => formatterCountries(e))
+    const result = countriesData
+      .map(e => formatterCountries(e))
+      .filter(country => country.id && country.name)
+
+    if (!result.length) {
+      throw new Error('Rest Countries did not return valid country records')
+    }
+
     await Country.bulkCreate(result, { ignoreDuplicates: true })
     return Country.findAll()
    }  catch (error) {

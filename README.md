@@ -67,6 +67,7 @@ DB_HOST=localhost
 DB_PORT=5432
 DATABASE_URL=
 DB_SSL=false
+REST_COUNTRIES_API_KEY=
 PORT=3001
 DB_SYNC=false
 ```
@@ -76,6 +77,8 @@ Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credencial
 Adicionalmente será necesario crear desde psql una base de datos llamada `countries`.
 
 En deploys como Render + Neon se puede usar `DATABASE_URL` en lugar de las variables separadas de Postgres. Para Neon, configurar también `DB_SSL=true`.
+
+Rest Countries requiere una API key en su API actual (`v5`). Configurar `REST_COUNTRIES_API_KEY` para que el backend pueda cargar los países cuando la base esté vacía.
 
 En `client`, configurar `REACT_APP_API_BASE_URL` con la URL del backend desplegado. Si no se define, usa `http://localhost:3001`.
 

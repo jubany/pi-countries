@@ -1,102 +1,150 @@
 .container {
-    height: 100vh;
-    background-color: #f3f1ed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRidR1S5yGbZV6d7JpeGHjC-c8wRqfrsLrGsg&usqp=CAU);
-    background-size: cover;
-    z-index: -1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at top left, rgba(72, 170, 255, 0.22), transparent 30rem),
+    linear-gradient(135deg, #f7fbff 0%, #e9fff3 100%);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(260px, 420px) minmax(280px, 1fr);
+  gap: 2rem;
+  align-items: center;
+  width: min(980px, 100%);
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  border: 1px solid #dcebe5;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(32, 58, 52, 0.16);
+}
+
+.imgContainer {
+  width: 100%;
+}
+
+.img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e1ebe8;
+  box-shadow: 0 12px 26px rgba(32, 58, 52, 0.08);
+}
+
+.infoContainer {
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  color: #1d2b27;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.badge {
+  display: inline-flex;
+  margin: 1rem 0 1.5rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  background: #def7a8;
+  color: #2f5b4b;
+  font-weight: 800;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.stats div {
+  min-width: 0;
+  padding: 1rem;
+  background: #f7fbfa;
+  border: 1px solid #e1ebe8;
+  border-radius: 8px;
+}
+
+.stats span {
+  display: block;
+  color: #60736d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.stats strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #213530;
+  font-size: 1rem;
+}
+
+.activitiesBox {
+  grid-column: 1 / -1;
+  width: 100%;
+  border-top: 1px solid #e1ebe8;
+  padding-top: 1.25rem;
+}
+
+.activities {
+  margin: 0 0 0.75rem;
+  color: #1d2b27;
+}
+
+.activitiesList {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.emptyActivities {
+  color: #60736d;
+  font-weight: 600;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  background-color: #1f8f78;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #156d5b;
+}
+
+@media (max-width: 768px) {
+  .container {
+    align-items: flex-start;
+    padding: 1rem;
   }
-  
-  .container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #dad4cc83;
-    z-index: 0;
-    border-bottom: 1px solid #776c62;
-  }
-  
+
   .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5vh 0.8vw;
-    background-color: #f3f1edb7;
-    box-shadow: -1px 2px 104px 12px rgba(0, 0, 0, 0.68);
-    z-index: 10;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.25rem;
   }
-  
-  .infoContainer {
-    margin-top: 2vh;
-    height: 50%;
+
+  .stats {
+    grid-template-columns: 1fr;
   }
-  
-  .img {
-    width: 35vw;
-    height: 40vh;
-  }
-  
-  .title {
-    margin: 0;
-  }
-  
-  .subtitle {
-    margin-top: 1vh;
-    margin-bottom: 3vh;
-  }
-  
-  h4 {
-    margin: 0.5vh;
-  }
-  
-  .activities {
-    margin-top: 3vh;
-    margin-bottom: 0;
-  }
-  
-  ul li {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .btnContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  
-  .btn {
-    padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
-    background-color: gray;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 2rem;
-    }
-  
-    .card {
-      width: 90%;
-      max-width: 500px;
-    }
-  
-    .img {
-      width: 100%;
-      height: auto;
-    }
-  }
-  
+}

@@ -15,6 +15,9 @@ export const CountryDetail = () => {
     dispatch(getCountry(id));
   }, [dispatch, id]);
 
+  const formatNumber = (value) =>
+    typeof value === "number" ? value.toLocaleString("en-US") : value;
+
   return (
     <>
       <div className={style.container}>
@@ -24,17 +27,31 @@ export const CountryDetail = () => {
           </div>
           <div className={style.infoContainer}>
             <h1 className={style.title}>{country.name}</h1>
-            <h3 className={style.subtitle}>Continent: {country.continents}</h3>
-            <h3>Capital: {country.capital}</h3>
-            <h3>subregion: {country.subregion}</h3>
-            <h3>area: {country.area}</h3>
-            <h3>population: {country.population}</h3>
+            <span className={style.badge}>{country.continents}</span>
+            <div className={style.stats}>
+              <div>
+                <span>Capital</span>
+                <strong>{country.capital}</strong>
+              </div>
+              <div>
+                <span>Subregion</span>
+                <strong>{country.subregion}</strong>
+              </div>
+              <div>
+                <span>Area</span>
+                <strong>{formatNumber(country.area)} km2</strong>
+              </div>
+              <div>
+                <span>Population</span>
+                <strong>{formatNumber(country.population)}</strong>
+              </div>
+            </div>
           </div>
-          <div>
+          <div className={style.activitiesBox}>
             <h4 className={style.activities}>Activities</h4>
-            <ul>
-              {country.activities &&
-                country.activities.map((act) => (
+            {country.activities?.length ? (
+              <ul className={style.activitiesList}>
+                {country.activities.map((act) => (
                   <li key={act.id}>
                     <p>
                       <strong>{act.name}</strong> ({act.season}) | Duration:{" "}
@@ -42,12 +59,15 @@ export const CountryDetail = () => {
                     </p>
                   </li>
                 ))}
-            </ul>
-            <div className={style.btnContainer}> 
-          <Link to="/home">
-            <button className={style.btn}>Back Home</button>
-          </Link>
-        </div>
+              </ul>
+            ) : (
+              <p className={style.emptyActivities}>No activities yet</p>
+            )}
+            <div className={style.btnContainer}>
+              <Link to="/home">
+                <button className={style.btn}>Back Home</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
   }
   
   .select select {
-    border: none;
+    border: 1px solid #cfe7df;
     font-weight: 600;
     font-size: 18px;
     text-align: center;
@@ -14,9 +14,9 @@
     padding: 0.5rem 1rem;
     outline: 0;
     cursor: pointer;
-    background-color: #EAFDFC;
+    background-color: #ffffff;
     border-radius: 8px;
-    color: #06963f;
+    color: #1f6f5f;
   }
   
   .select label {

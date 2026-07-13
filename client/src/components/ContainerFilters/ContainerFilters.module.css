@@ -1,10 +1,14 @@
 .containerFilter {
     display: flex;
-    gap: 5px;
+    gap: 0.75rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.62);
+    border-top: 1px solid #d7eee6;
+    border-bottom: 1px solid #d7eee6;
     overflow: hidden;
   }
   

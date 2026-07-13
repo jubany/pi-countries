@@ -1,90 +1,72 @@
 .container {
-    background-color: #b8fcd3;
-  }
-  
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(104, 186, 255, 0.2), transparent 32rem),
+    linear-gradient(180deg, #e7fff2 0%, #f7fbff 48%, #ffffff 100%);
+  padding-bottom: 3rem;
+}
+
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.resultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  color: #21433a;
+  font-weight: 700;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+  padding-bottom: 2rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  color: #1f342f;
+}
+
+.pageButton {
+  min-width: 76px;
+  padding: 0.7rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d4eadf;
+  border-radius: 8px;
+  color: #16443a;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(24, 54, 46, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pageButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(24, 54, 46, 0.12);
+}
+
+@media (max-width: 768px) {
   .content {
-    max-height: 80vh; /* Establece una altura máxima */
-    overflow-y: auto; /* Permite el desplazamiento vertical solo cuando sea necesario */
+    padding: 0 1rem;
   }
-  
-  .card.card:hover {
-    transform: scale(1.1); /* Aplica un zoom del 110% */
-    transition: transform 0.3s ease; /* Agrega una transición suave */
-  }
-  
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    background-color: #b8fcd3;
-    /* padding-bottom: 7.8rem; Elimina el espacio adicional en la parte inferior */
+
+  .resultsHeader {
     align-items: flex-start;
+    flex-direction: column;
   }
-  
-  .card {
-    width: 100%;
-    padding: 1.5rem;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.5rem; /* Agrega un espacio más pequeño entre las tarjetas */
-  }
-  
+
   .pagination {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-    align-items: center;
-    margin: 0 .5rem;
-    margin-bottom: 10px;
+    width: 100%;
+    justify-content: space-between;
   }
-  
-  .buttonPrev {
-    padding: 10px;
-    background-color: #fcffe7;
-    border-radius: 10px;
-    margin-right: 10px;
-    color: #181d31;
-    font-weight: 800;
-    box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
-  }
-  
-  .buttonNext {
-    padding: 10px;
-    background-color: #fcffe7;
-    border-radius: 10px;
-    margin-left: 10px;
-    color: #181d31;
-    font-weight: 800;
-    box-shadow: -1px 3px 26px -4px rgba(0,0,0,0.22);
-  }
-  
-  @media (max-width: 768px) {
-    .wrapper {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  
-    .card {
-      margin-bottom: 0.20rem; /* Ajusta el espacio entre las tarjetas */
-      height: auto;
-    }
-  
-    .card:nth-child(3n + 1) {
-      margin-right: 0;
-    }
-  
-    .card:last-child {
-      margin-bottom: 0;
-    }
-  
-    .content {
-      max-height: calc(80vh - 2rem);
-      overflow-y: scroll;
-    }
-  }
-  
-  
-  
-  
-  
-  
+}

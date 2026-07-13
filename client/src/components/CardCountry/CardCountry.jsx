@@ -8,7 +8,9 @@ const CardCountry = (props) => {
     <>
         <Link to={`/country/${id}`}>
           <div className={style.card}>
-              <img src={image} width="150" height="150" alt={name} />
+              <div className={style.flagWrap}>
+                <img src={image} alt={name} />
+              </div>
               <div className={style.cardInfo}>
                 <h1>{name}</h1>
                 <h3>{continents}</h3>

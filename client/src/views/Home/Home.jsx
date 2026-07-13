@@ -8,6 +8,8 @@ import ContainerFilter from "../../components/ContainerFilters/ContainerFilters"
 import { getAllCountries } from "../../redux/actions/index";
 import style from "./Home.module.css";
 
+const CARDS_PER_PAGE = 9;
+
 const Home = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.countries);
@@ -22,30 +24,26 @@ const Home = () => {
   const [pagesTotal, setTotalPages] = useState(0);
 
   useEffect(() => {
-    setCardsPerView([...filterCountries].splice(0, 9));
+    setCardsPerView([...filterCountries].slice(0, CARDS_PER_PAGE));
     setCurrentPage(0);
-    setTotalPages(Math.ceil(filterCountries.length / 3)); // Display 3 cards per row
+    setTotalPages(Math.ceil(filterCountries.length / CARDS_PER_PAGE));
   }, [filterCountries]);
 
   function HandleForwad() {
     const totalElements = filterCountries.length;
     const nextPage = currentPage + 1;
-    const firstIndex = nextPage * 3; // Display 3 cards per row
+    const firstIndex = nextPage * CARDS_PER_PAGE;
     if (firstIndex >= totalElements) return;
     setCurrentPage(nextPage);
-    setCardsPerView([...filterCountries].splice(firstIndex, 9));
+    setCardsPerView([...filterCountries].slice(firstIndex, firstIndex + CARDS_PER_PAGE));
   }
 
   function HandleBack() {
     const prevPage = currentPage - 1;
-    let totalItemsByPage = 9;
     if (prevPage < 0) return;
-    if (prevPage === 0) {
-      totalItemsByPage = 9;
-    }
-    const firstIndex = prevPage * 3; // Display 3 cards per row
+    const firstIndex = prevPage * CARDS_PER_PAGE;
     setCurrentPage(prevPage);
-    setCardsPerView([...filterCountries].splice(firstIndex, totalItemsByPage));
+    setCardsPerView([...filterCountries].slice(firstIndex, firstIndex + CARDS_PER_PAGE));
   }
 
   return (
@@ -58,16 +56,17 @@ const Home = () => {
             <Loading />
           ) : (
             <div>
-              <div>
+              <div className={style.resultsHeader}>
+                <p>{filterCountries.length} countries</p>
                 <div className={style.pagination}>
-                  <button className={style.buttonPrev} onClick={HandleBack}>
+                  <button className={style.pageButton} onClick={HandleBack}>
                     Prev
                   </button>
                   <span>
-                    {currentPage + 1} of {pagesTotal}
+                    {currentPage + 1} of {pagesTotal || 1}
                   </span>
-                  <button className={style.buttonNext} onClick={HandleForwad}>
-                    next
+                  <button className={style.pageButton} onClick={HandleForwad}>
+                    Next
                   </button>
                 </div>
               </div>

@@ -7,6 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #1d2b27;
   background: #ffffff;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 code {
@@ -16,14 +19,14 @@ code {
 
 
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 #root > div {
-  height: 100%;
+  min-height: 100%;
 }
 html {
   box-sizing: border-box;
-  height: 100%;
+  min-height: 100%;
 }
 *, *:before, *:after {
   box-sizing: inherit;

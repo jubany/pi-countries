@@ -1,7 +1,3 @@
-body {
-    overflow: hidden;
-  }
-  
   .ParticleImage {
     display: flex;
     flex-direction: column;
@@ -9,6 +5,7 @@ body {
     align-items: center;
     width: 100%;
     min-height: 100vh;
+    overflow: hidden;
   }
   
   .title {
